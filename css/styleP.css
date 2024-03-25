@@ -1,0 +1,183 @@
+body {
+    display: grid; /* Будем делать сайт с помощью CSS Grid */
+    grid-template-rows: min-content auto min-content; /* Первая строка подстроилась под header, вторая заняла оставшееся пространство */
+    margin: 0;
+    font-family: Calibri, Arial, sans-serif; /* Порядок вызова шрифтов */
+    height: 100vh; /* Занимает всю высоту видимой области */
+    background-color: rgba(255, 182, 193, 0.497);    
+  }
+
+  .grid-item {
+    text-align: left;
+  }
+
+  .stroka {
+    grid-column: span 12;
+    padding: 0 3rem; /* Слева вертикаль, справа горизонталь */
+  }
+
+  .mnogo {
+    grid-column: span 7;
+    padding: 0 3rem; /* Слева вертикаль, справа горизонталь */
+  }
+
+  .malo {
+    grid-column: span 5;
+  }  
+  
+  .fotki {
+    max-height: 60vh; /* Максимальная высота 50% от высоты экрана */
+    width: 100%; /* Ширина по ширине грид-колонки */
+    object-fit: cover; /* Обрезать изображение по размеру контейнера */
+    margin-bottom: 10px;
+    margin-top: 5rem;
+    border: 1px solid black;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+    padding: 20px;
+    margin-top: 34px;
+    font-size: 1.2rem; 
+  }
+
+  .menu {
+    position: fixed; /* Приклеили... */
+    top: 0; /* ...к верху страницы */
+    width: 100%; /* И растянули, а то по умолчанию оно сужается */
+    display: flex; /* Создаём гибкий контейнер, по умолчанию по горизонтали */
+    justify-content: center; /* Центрируем меню по горизонтали */
+    align-items: center;
+    background-color: #333;
+  }
+  
+  .nav-list {
+    list-style: none; /* Страхуемся от кружочков слева от пунктов списка */
+    display: flex;
+    padding: 0;
+  }
+  
+  .nav-list a {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;    
+  }
+
+  .nav-list a:hover {
+    background-color: rgba(203, 131, 131, 0.671)
+  }
+
+  .menu-toggle {
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+  }
+
+  .bar {
+    width: 45px;
+    height: 4px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  .logo img {
+    display: flex;
+    height: 45px;
+    padding-right: 2rem;
+}
+
+  footer {
+    display: grid; /* Будем делать футер с помощью CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* По ТЗ нам нужно три столбика; сделаем их одинаковой ширины */
+    gap: 1rem; /* Задаем промежуток между элементами в сетке */
+    background-color: #333; /* Задаем цвет фона футера */
+    color: white; /* Задаем цвет текста внутри футера */
+  }
+  
+  footer div {
+    margin-left: 1rem; /* Отодвинули текст от левого края */
+  }
+
+  footer h4 {
+    margin: 0.3rem; /* По умолчанию он был бы больше */
+    color: lightpink;
+  }
+
+  footer p {
+    margin: 0.3rem; /* По умолчанию он был бы больше */
+  }
+
+  footer a {
+    color: white; /* Задаем цвет текста для ссылок внутри футера */
+    text-decoration: none; /* Убираем стандартное подчеркивание у ссылок */
+  }
+  
+  footer a:hover {
+    text-decoration: underline; /* Добавляем подчеркивание при наведении курсора на ссылку */
+  }
+
+  #Vverh {
+    position: fixed; /* Приклеили... */
+    bottom: 20px; /* Задайте нужный отступ снизу */
+    right: 20px; /* Задайте нужный отступ справа */
+    display: none;
+    background-color: lightpink;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 30px;
+    cursor: pointer;
+  }
+
+  #changeSize {
+    position: fixed; /* Приклеили... */
+    top: 70px; /* Задайте нужный отступ снизу */
+    right: 20px; /* Задайте нужный отступ справа */
+    background-color: lightpink;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 22px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) { /* Для смартфонов */
+    .menu {
+      flex-direction: column; /* Меняем на вертикальное распределение при малых экранах */
+    }
+
+    .nav-list a {
+      display: flex;
+      padding: 2px 15px;
+    }
+
+    .logo img {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+      margin-right: auto; /* Перемещаем иконку влево */ 
+      margin-left: 10px; /* Добавляем отступ слева */
+      padding: 7px 5px; /* Внутренние отступы (сверху и снизу 7 пикселей, слева и справа 5 пикселей) */     
+    }
+
+    .nav-list {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 34px;
+      left: 0;
+      background-color: #333;
+    }
+
+    .nav-list.show {
+      display: flex;
+    }
+
+  }
