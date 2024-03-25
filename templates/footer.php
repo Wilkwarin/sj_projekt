@@ -13,6 +13,8 @@
       </div>
     </footer>
 
-    <script src="js/scriptV.js"></script>
+<?php
+add_scripts();
+?>
   </body>
 </html>

@@ -1,3 +1,6 @@
+<?php
+require_once "_inc/functions.php";
+?>
 <!DOCTYPE html>
 <html lang="sk">
   <head>
@@ -7,8 +10,8 @@
     <meta name="author" content="Mariia Shorokhova" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/styleV.css" />
-    <link rel="stylesheet" href="css/normalize.css" />
+    <?php add_styles(); ?>
+
     <title>Dyma</title>
   </head>
   <body>
