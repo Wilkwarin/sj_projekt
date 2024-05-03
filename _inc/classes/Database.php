@@ -19,11 +19,11 @@ class Database
                 );
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                 $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-                return $this->connection;
             } catch (PDOException $e) {
                 exit($e->getMessage());
             }
         }
+
+        return $this->connection;
     }
 }

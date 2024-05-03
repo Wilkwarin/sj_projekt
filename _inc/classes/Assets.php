@@ -1,13 +1,11 @@
 <?php
 
 class Assets {
-
-    private $pagename;
     private $pismeno;
 
     public function __construct() {
-        $this->pagename = basename($_SERVER["SCRIPT_NAME"], ".php");
-        $this->pismeno = substr($this->pagename, 0, 1);
+        $pagename = basename($_SERVER["SCRIPT_NAME"], ".php");
+        $this->pismeno = substr($pagename, 0, 1);
     }
 
     public function add_styles() {

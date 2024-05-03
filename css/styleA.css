@@ -7,141 +7,40 @@ body {
   background-color: rgba(255, 182, 193, 0.497);
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 10px;
-  padding: 20px;
-  margin-top: 34px;
-}
-
 .grid-item {
   text-align: left;
 }
 
 .stroka {
   grid-column: span 12;
+  padding: 0 3rem; /* Слева вертикаль, справа горизонталь */
 }
 
-.odinnadsat {
-  grid-column: span 11;
-}
-
-.desat {
-  grid-column: span 10;
-}
-
-.devat {
-  grid-column: span 9;
-}
-
-.vosem {
-  grid-column: span 8;
-}
-
-.sem {
+.mnogo {
   grid-column: span 7;
+  padding: 0 3rem; /* Слева вертикаль, справа горизонталь */
 }
 
-.sest {
-  grid-column: span 6;
-}
-
-.pat {
+.malo {
   grid-column: span 5;
 }
 
-.styri {
-  grid-column: span 4;
-}
-
-.tri {
-  grid-column: span 3;
-}
-
-.dva {
-  grid-column: span 2;
-}
-
-.odin {
-  grid-column: span 1;
-}
-
-.banner {
-  position: sticky; /* Приклеили... */
-  top: 52px;
-}
-
-.banner img {
-  max-height: 70vh; /* Максимальная высота 50% от высоты экрана */
-  max-width: 100%;
-  margin-top: 1rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-}
-
 .fotki {
-  max-height: 70vh; /* Максимальная высота 50% от высоты экрана */
-  max-width: 100%;
+  max-height: 60vh; /* Максимальная высота 50% от высоты экрана */
+  width: 100%; /* Ширина по ширине грид-колонки */
   object-fit: cover; /* Обрезать изображение по размеру контейнера */
-  margin-top: 1rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
+  margin-bottom: 10px;
+  margin-top: 5rem;
+  border: 1px solid black;
 }
 
-table,
-th,
-td {
-  border-collapse: collapse;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  padding: 0.6rem;
-}
-
-.accordion-container {
+main {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(12, 1fr);
   gap: 10px;
-}
-
-.accordion-item {
-  background-color: #fff;
-  border: 1px solid black;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.accordion-header {
-  padding: 10px;
-  background-color: lightpink;
-  cursor: pointer;
-}
-
-.accordion-content {
-  padding: 0 10px;
-  display: none;
-}
-
-.netlacidlo {
-  background-color: lightpink;
-  padding: 5px 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 70px;
-  min-width: 60px;
-}
-
-.netlacidlo a {
-  color: black;
-  text-decoration: none;
-}
-
-.netlacidlo:hover {
-  background-color: rgb(199, 110, 125);
+  padding: 20px;
+  margin-top: 34px;
+  font-size: 1.2rem;
 }
 
 .menu {
@@ -233,6 +132,18 @@ footer a:hover {
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px 30px;
+  cursor: pointer;
+}
+
+#changeSize {
+  position: fixed; /* Приклеили... */
+  top: 70px; /* Задайте нужный отступ снизу */
+  right: 20px; /* Задайте нужный отступ справа */
+  background-color: lightpink;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px 22px;
   cursor: pointer;
 }
 

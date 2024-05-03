@@ -37,9 +37,22 @@ require_once "_inc/config.php";
 
       <ul class="nav-list">
         <li><a href="index.php#Vratit">Domov</a></li>
-        <li><a href="pribeh.php#Pribeh">Príbeh</a></li>
+        <li><a href="blog.php">Blog</a></li>
         <li><a href="vybavenie.php#Vybavenie">Vybavenie</a></li>
         <li><a href="galeria.php#Galeria">Galéria</a></li>
+
+        <li>|</li>
+
+        <?php
+        if (isset($_SESSION["role"])) {
+          if ($_SESSION["role"] >= 2) {
+            echo '<li><a href="admin.php">Admin</a></li>';
+          }
+          echo '<li><a href="odhlasit.php">Odhlásiť</a></li>';
+        } else {
+          echo '<li><a href="prihlasenie.php">Prihlásenie</a></li>';
+        }
+        ?>
       </ul>
     </nav>
   </header>

@@ -12,3 +12,6 @@ require_once "_inc/classes/Database.php";
 
 require_once "_inc/classes/Assets.php";
 require_once "_inc/classes/Contact.php";
+require_once "_inc/classes/User.php";
+
+session_start();

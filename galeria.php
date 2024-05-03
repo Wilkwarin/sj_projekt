@@ -59,7 +59,7 @@ include_once "templates/header.php";
     ?>
 
     <div id="Anketa">
-      <form method="post" onsubmit="return validateForm()">
+      <form method="post">
         <h2>Chcete povedať príbeh svojej mačky?</h2>
         <p>Potom mi to povedzte v tomto dotazníku.</p>
 
