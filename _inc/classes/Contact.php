@@ -5,7 +5,7 @@ class Contact extends Database {
         $sql = "INSERT INTO contact (meno, email, poznamka) VALUES (:meno, :email, :poznamka);";
         $stmt = $this->connection->prepare($sql);
 
-        return $stmt->execute(array($meno, $email, $poznamka));
+        return $stmt->execute(array("meno" => $meno, "email" => $email, "poznamka" => $poznamka));
     }
 
     public function read_contact($id) {
