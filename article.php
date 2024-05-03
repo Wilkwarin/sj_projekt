@@ -19,8 +19,8 @@ include_once "templates/header.php";
     }
     ?>
 
-    <div>
-        <h1 class="resizeText grid-item stroka"><?= $a["title"] ?></h1>
+    <div class="grid-item devat">
+        <h1><?= $a["title"] ?></h1>
         <span><?= $a["posted"] ?></span>
         <p><?= $a["body"] ?></p>
     </div>

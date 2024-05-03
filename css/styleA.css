@@ -16,6 +16,11 @@ body {
   padding: 0 3rem; /* Слева вертикаль, справа горизонталь */
 }
 
+.devat {
+  grid-column: span 9;
+  padding: 0 3rem; /* Слева вертикаль, справа горизонталь */
+}
+
 .mnogo {
   grid-column: span 7;
   padding: 0 3rem; /* Слева вертикаль, справа горизонталь */

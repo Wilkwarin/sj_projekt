@@ -1,8 +1,39 @@
 <?php
 include_once "templates/header.php";
 ?>
+
 <main>
-  <h1 class="resizeText grid-item stroka">Blog mačky menom Dýma</h1>
+  <h1 class="resizeText grid-item stroka">Blog o Dýme</h1>
+
+  <div class="resizeText grid-item devat">
+
+  <?php
+  $articleObject = new Article();
+  $allArticles = $articleObject->get_articles();
+
+  for ($i = count($allArticles) - 1; $i >= 0; $i--){
+    $article = $allArticles[$i];
+  ?>
+    <div>
+      <div>
+        <span><?= $article["posted"] ?></span>
+        <h3><?= $article["title"] ?></h3>        
+      </div>
+
+      <?php
+        if (strlen($article["body"]) > 200) {
+          echo substr($article["body"], 0, 200) . '... <br> <br> <a class="viac" href="article.php?id=' . $article["id"] . '">Čítať viac &rArr;</a>';
+        } else {
+          echo $article["body"];
+        }
+        ?>
+      </p>
+    </div>
+  <?php } ?>
+
+  </div>
+
+  <h1 class="resizeText grid-item stroka">Príbeh mačky menom Dýma</h1>
 
 
   <div class="grid-item mnogo">
@@ -62,23 +93,7 @@ include_once "templates/header.php";
   <button id="Vverh">&#x2191;</button>
 </main>
 
-<div id="blog" style="display: flex; flex-direction: column; margin: 2rem auto; width: 400px;">
-  <?php
-  $article = new Article();
-  $allArticles = $article->get_articles();
 
-  foreach ($allArticles as $article): ?>
-    <div>
-      <div>
-        <h3><?= $article["title"] ?></h3>
-        <span><?= $article["posted"] ?></span>
-      </div>
-
-      <p><?= substr($article["body"], 0, 20) ?>...</p>
-      <a class="btn" href="article.php?id=<?= $article["id"] ?>">Čítať viac &rArr;</a>
-    </div>
-  <?php endforeach; ?>
-</div>
 
 <?php
 include_once "templates/footer.php";
