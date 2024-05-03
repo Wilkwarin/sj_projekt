@@ -21,8 +21,8 @@ include_once "templates/header.php";
       </div>
 
       <?php
-        if (strlen($article["body"]) > 200) {
-          echo substr($article["body"], 0, 200) . '... <br> <br> <a class="viac" href="article.php?id=' . $article["id"] . '">Čítať viac &rArr;</a>';
+        if (strlen($article["body"]) > 201) {
+          echo substr($article["body"], 0, 201) . '... <br> <br> <a class="viac" href="article.php?id=' . $article["id"] . '">Čítať viac &rArr;</a>';
         } else {
           echo $article["body"];
         }
