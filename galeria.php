@@ -48,7 +48,7 @@ include_once "templates/header.php";
 
       <div id="Anketa">
         <form
-          action="thank-you-page.php"
+          action="kontakt.php"
           method="post"
           onsubmit="return validateForm()"
         >
