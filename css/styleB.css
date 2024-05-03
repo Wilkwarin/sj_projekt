@@ -139,6 +139,9 @@ footer a:hover {
   position: fixed; /* Приклеили... */
   top: 70px; /* Задайте нужный отступ снизу */
   right: 20px; /* Задайте нужный отступ справа */
+}
+
+.btn {
   background-color: lightpink;
   color: black;
   border: 1px solid black;

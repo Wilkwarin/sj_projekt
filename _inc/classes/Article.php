@@ -17,14 +17,14 @@ class Article extends Database
         return $result;
     }
 
-    public function get_articles($id)
+    public function get_articles()
     {
         $sql = "SELECT * FROM article;";
         $stmt = $this->connection->prepare($sql);
 
         $stmt->execute();
 
-        $result = $stmt->fetch();
+        $result = $stmt->fetchAll();
         return $result;
     }
 
