@@ -10,6 +10,7 @@ include_once "templates/header.php";
             $u = $user->login($_POST["username"], $_POST["password"]);
 
             if ($user) {
+                $_SESSION["id"] = $u["id"];
                 $_SESSION["username"] = $u["username"];
                 $_SESSION["role"] = $u["role"];
 

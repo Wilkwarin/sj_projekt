@@ -7,30 +7,49 @@ include_once "templates/header.php";
 
   <div class="resizeText grid-item devat">
 
-  <?php
-  $articleObject = new Article();
-  $allArticles = $articleObject->get_articles();
+    <?php
+    $articleObject = new Article();
+    $allArticles = $articleObject->get_articles();
 
-  for ($i = count($allArticles) - 1; $i >= 0; $i--){
-    $article = $allArticles[$i];
-  ?>
-    <div>
-      <div>
-        <span><?= $article["posted"] ?></span>
-        <h3><?= $article["title"] ?></h3>        
-      </div>
+    if (!$allArticles) {
+      echo "Žiadne články.";
+    } else {
+
+      for ($i = 0; $i < count($allArticles); $i++) {
+        $article = $allArticles[$i];
+        ?>
+        <div>
+          <div>
+            <span><?= $article["posted"] ?></span>
+            <h3><?= $article["title"] ?></h3>
+          </div>
+
+          <?php
+          if (strlen($article["body"]) > 250) {
+            echo substr($article["body"], 0, 250) . '...';
+          } else {
+            echo $article["body"];
+          }
+          ?>
+
+          <br><br>
+          <a class="viac" href="article.php?id=<?= $article["id"] ?>">Čítať viac &rArr;</a>
+
+          </p>
+        </div>
+        <?php
+      }
+    }
+    ?>
+
+    <?php
+    if (isset($_SESSION["role"]) && $_SESSION["role"] >= 2) {
+      ?>
+      <br /><br /><a class="btn" href="article-create.php">Nový článok</a>
 
       <?php
-        if (strlen($article["body"]) > 201) {
-          echo substr($article["body"], 0, 201) . '... <br> <br> <a class="viac" href="article.php?id=' . $article["id"] . '">Čítať viac &rArr;</a>';
-        } else {
-          echo $article["body"];
-        }
-        ?>
-      </p>
-    </div>
-  <?php } ?>
-
+    }
+    ?>
   </div>
 
   <h1 class="resizeText grid-item stroka">Príbeh mačky menom Dýma</h1>

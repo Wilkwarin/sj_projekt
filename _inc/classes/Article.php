@@ -19,7 +19,7 @@ class Article extends Database
 
     public function get_articles()
     {
-        $sql = "SELECT * FROM article;";
+        $sql = "SELECT * FROM article ORDER BY posted DESC;";
         $stmt = $this->connection->prepare($sql);
 
         $stmt->execute();
@@ -36,7 +36,7 @@ class Article extends Database
         return $stmt->execute(
             array(
                 "title" => $title,
-                "body" => $body,
+                "body" => htmlspecialchars(trim($body)),
                 "author_id" => $author_id,
             )
         );
@@ -44,18 +44,20 @@ class Article extends Database
 
     public function update_article($id, $title, $body)
     {
-        $sql = "UPDATE article SET title = :title, body = :body);";
+        $sql = "UPDATE article SET title = :title, body = :body WHERE id = :id;";
         $stmt = $this->connection->prepare($sql);
 
-        return $stmt->execute(
+        $stmt->execute(
             array(
+                "id" => $id,
                 "title" => $title,
-                "body" => $body
+                "body" => htmlspecialchars(trim($body)),
             )
         );
     }
 
-    public function delete_article($id) {
+    public function delete_article($id)
+    {
         $sql = "DELETE FROM article WHERE id = :id;";
         $stmt = $this->connection->prepare($sql);
 
