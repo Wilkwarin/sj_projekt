@@ -20,12 +20,22 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] < 2) {
                     <th>Dátum registrácie</th>
                     <th>Rola</th>
                     <th>Upraviť</th>
+                    <th>Zmazať</th>
                 </tr>
             </thead>
 
             <tbody>
                 <?php
                 $userObj = new User();
+
+                if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                    if (isset($_POST["delete"])) {
+                        $userObj->delete_user($_POST["id"]);
+                        header("Location: admin.php");
+                        die();
+                    }
+                }
+
                 $users = $userObj->get_users();
 
                 for ($i = 0; $i < count($users); $i++) {
@@ -43,7 +53,13 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] < 2) {
                         }
                         ?>
                         <td>
-                            <a class="btn" href="#">Upraviť</a>
+                            <a class="btn" href="user-edit.php?username=<?= $user["username"] ?>">Upraviť</a>
+                        </td>
+                        <td>
+                            <form method="POST">
+                                <input type="hidden" name="id" value="<?= $user["id"] ?>" />
+                                <button class="btn" type="submit" name="delete">Zmazať</button>
+                            </form>
                         </td>
                     </tr>
                     <?php

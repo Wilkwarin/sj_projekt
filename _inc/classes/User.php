@@ -50,16 +50,16 @@ class User extends Database
         );
     }
 
-    public function update_user($username, $email, $password, $role)
+    public function update_user($id, $username, $email, $role)
     {
-        $sql = "UPDATE user SET username = :username, email = :email, password = :password, role = :role);";
+        $sql = "UPDATE user SET username = :username, email = :email, role = :role WHERE id = :id;";
         $stmt = $this->connection->prepare($sql);
 
-        return $stmt->execute(
+        $stmt->execute(
             array(
+                "id" => $id,
                 "username" => $username,
                 "email" => $email,
-                "password" => $password,
                 "role" => $role
             )
         );
