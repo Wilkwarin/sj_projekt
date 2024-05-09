@@ -32,13 +32,20 @@ include_once "templates/header.php";
         <span><?= $a["posted"] ?></span>
         <p><?= str_replace("\n", "<br>", $a["body"]) ?></p>
 
-        <form method="POST">
-            <input type="hidden" name="id" value="<?= $a["id"] ?>" />
-            <button class="btn" type="submit" name="delete">Zmazať</button>
-        </form>
 
-        <br><br>
-        <a class="btn" href="article-edit.php?id=<?= $a["id"] ?>">Upraviť</a>
+        <?php
+        if (isset($_SESSION["role"]) && $_SESSION["role"] >= 2) {
+            ?>
+            <form method="POST">
+                <input type="hidden" name="id" value="<?= $a["id"] ?>" />
+                <button class="btn" type="submit" name="delete">Zmazať</button>
+            </form>
+
+            <br><br>
+            <a class="btn" href="article-edit.php?id=<?= $a["id"] ?>">Upraviť</a>
+            <?php
+        }
+        ?>
     </div>
 </main>
 

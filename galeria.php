@@ -45,6 +45,7 @@ include_once "templates/header.php";
       <source src="video/video_2.mp4" type="video/mp4" />
     </video>
   </div>
+  
   <?php
   if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $contact = new Contact();
