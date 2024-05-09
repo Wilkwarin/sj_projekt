@@ -1,8 +1,8 @@
 <?php
 include_once "templates/header.php";
 
-if (isset($_SESSION["role"]) && $_SESSION["role"] < 2) {
-    header("Location: blog.php");
+if (!isset($_SESSION["role"]) || $_SESSION["role"] < 2) {
+    header("Location: domov.php");
     exit();
 }
 ?>
