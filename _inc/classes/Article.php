@@ -35,7 +35,7 @@ class Article extends Database
 
         return $stmt->execute(
             array(
-                "title" => $title,
+                "title" => htmlspecialchars(trim($title)),
                 "body" => htmlspecialchars(trim($body)),
                 "author_id" => $author_id,
             )
@@ -50,7 +50,7 @@ class Article extends Database
         $stmt->execute(
             array(
                 "id" => $id,
-                "title" => $title,
+                "title" => htmlspecialchars(trim($title)),
                 "body" => htmlspecialchars(trim($body)),
             )
         );

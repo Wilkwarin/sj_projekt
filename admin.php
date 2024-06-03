@@ -10,7 +10,7 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] < 2) {
 <main>
     <div>
         <h1>Admin</h1>
-        <p>Vytaj, <?= $_SESSION["username"] ?></p>
+        <p>Vitaj, <?= $_SESSION["username"] ?></p>
 
         <table style="table-border: 1px solid">
             <thead>
